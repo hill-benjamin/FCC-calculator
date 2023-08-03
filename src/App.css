@@ -1,38 +1,125 @@
-.App {
-  text-align: center;
+@import './data/variables.css';
+@import url('https://fonts.googleapis.com/css2?family=Handjet:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+
+body, html, #root{
+  height: 100%;
+  overflow: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App{
+  width: 100vw;
+  height: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-family: 'Roboto Mono', monospace;
+  padding: 100px 0;
+  filter: brightness(0.95);
+  background-color: red;
+  background-image: url(data/math-background.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.background-brightness{
+  position: absolute;
+  z-index: -1; 
+  background-color: rgba(0,0,0,.7);
+  width: 100vw;
+  height: 100%;
+  padding: 100px 0;
+  overflow-y: auto;
+}
+
+div{
+  display: inline-block;
+}
+
+#calculator{  
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: min-content repeat(5, 60px);
+  background-color: rgb(202, 202, 174);
+  width: 320px;
+  grid-gap: 1px;
+  padding: 8px;
+  padding-top: 0px;
+  border-radius: 5px;
+  margin: auto;
+  box-shadow: 1px 1px 10px 10px #1d1d1d, 0px 0px 50px 0px #1a1a1a;
+}
+
+#display{
+  color: black;
+  text-align: right;
+  font-size: 34px;
+  font-family: 'Handjet', cursive;
+  background-color: var(--cyan);
+  grid-column: 1 / span 4;
+  overflow: hidden;
+  user-select: none;
+  margin: 10px auto;
+  width: 97%;
+  padding: 5px;
+  border-radius: 20px;
+}
+
+#display .total-text{
+  color: var(--red);
+  font-weight: bold;
+  font-size: 26px;
+}
+
+#clear{
+  background-color: var(--red);
+  grid-column: 1 / span 2;
+  border-top-left-radius: 5px;
+}
+
+#multiply{
+  border-top-right-radius: 5px;
+}
+
+#display p{
+  word-wrap: break-word;
+}
+
+.btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
   color: white;
+  user-select: none;
 }
 
-.App-link {
-  color: #61dafb;
+.num{
+  background-color: var(--dark-gray);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.operator{
+  background-color: var(--yellow);
+}
+
+#zero{
+  grid-column: 1 / span 2;
+  border-bottom-left-radius: 5px;
+}
+
+#equals{
+  grid-column: 4/5;
+  grid-row: 5/7;
+  background-color: var(--blue);
+  border-bottom-right-radius: 5px;
+}
+
+.btn:hover{
+  color: black;
+  outline: 1px solid var(--light-gray);
 }
